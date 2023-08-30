@@ -21,18 +21,69 @@ namespace Projeto1
         {
             string name = txbNome.Text;
             string enrollment = txbPront.Text;
+            string answer =txbQuest.Text;
+            string music = txbMusic.Text;   
+            string person = txbPerson.Text;
+            string disney = txbDisney.Text;
+            string cpf = mtxbCpf.Text;
+            string number = mtxbNumber.Text;
 
-            string message = "Nome: " + name +
-                             "\nOpnião: " + enrollment;
+            string message = "\nNome: " + name +
+                             "\nOpnião: " + enrollment +
+                             "\nResposta: " + answer +
+                             "\nMúsica: " + music +
+                             "\nPersonagem: " + person +
+                             "\nOpnião: " + disney +
+                             "\nCPF: " + cpf +
+                             "\nNUMER O:" + number;
+
+
+
+
             MessageBox.Show(
                 message,
-                "Disney",
+                "QUIZ: ",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
                  );
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblperson_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDisney_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNumber_Click(object sender, EventArgs e)
         {
 
         }
