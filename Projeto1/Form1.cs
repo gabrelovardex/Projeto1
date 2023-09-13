@@ -18,6 +18,62 @@ namespace Projeto1
             InitializeComponent();
         }
 
+        private void UpdateListView()
+        {
+          
+             listView1.Items.Clear();
+
+                Connection conn = new Connection();
+                SqlCommand sqlCom = new SqlCommand();
+
+                sqlCom.Connection = conn.ReturnConnection();
+                sqlCom.CommandText = "SELECT * FROM disney_quiz";
+
+                try
+                {
+                    SqlDataReader dr = sqlCom.ExecuteReader();
+
+                    //Enquanto for possível continuar a leitura das linhas que foram retornadas na consulta, execute.
+                    while (dr.Read())
+                    {
+                       
+                        string cpf = (string)dr["CPF"];
+                        string number = (string)dr["TELEFONE"];
+                        string name = (string)dr["OPINIAO"];
+                        string enrollment = (string)dr["OPINIAO2"];
+                        string answer = (string)dr["FILMEPREFE"];
+                        string music = (string)dr["MUSICAPREFE"];
+                        string person = (string)dr["PERSONAGEMPREFE"];
+                        string disney = (string)dr["DISNEY"];
+
+                        ListViewItem lv = new ListViewItem(cpf);
+                        lv.SubItems.Add(cpf);
+                        lv.SubItems.Add(number);
+                        lv.SubItems.Add(name);
+                        lv.SubItems.Add(enrollment);
+                        lv.SubItems.Add(answer);
+                        lv.SubItems.Add(music);
+                        lv.SubItems.Add(person);
+                        lv.SubItems.Add(disney);
+                        listView1.Items.Add(lv);
+
+                    }
+                    dr.Close();
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+                }
+                finally
+                {
+                    conn.CloseConnection();
+                }
+            
+
+
+        }
+
+
         private void btnMickey_Click(object sender, EventArgs e)
         {
             //string name = txbNome.Text;
@@ -78,7 +134,9 @@ namespace Projeto1
             txbQuest.Clear();
             txbMusic.Clear();
             txbPerson.Clear();
-            txbDisney.Clear(); 
+            txbDisney.Clear();
+
+            UpdateListView();
 
         }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
@@ -128,6 +186,17 @@ namespace Projeto1
         }
 
         private void txbNome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

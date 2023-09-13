@@ -47,6 +47,15 @@
             this.lblNumber = new System.Windows.Forms.Label();
             this.mtxbCpf = new System.Windows.Forms.MaskedTextBox();
             this.mtxbNumber = new System.Windows.Forms.MaskedTextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lblNome
@@ -224,11 +233,64 @@
             this.mtxbNumber.Size = new System.Drawing.Size(100, 20);
             this.mtxbNumber.TabIndex = 20;
             // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(50, 444);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(993, 206);
+            this.listView1.TabIndex = 21;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "CPF";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "TELEFONE";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "OPINIAO";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "OPINIAO2";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "FILMEPREFE";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "MUSICAPREFE";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "PERSONAGEMPREFE";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "DISNEY";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1224, 662);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.mtxbNumber);
             this.Controls.Add(this.mtxbCpf);
             this.Controls.Add(this.lblNumber);
@@ -250,6 +312,7 @@
             this.Controls.Add(this.btnMickey);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,6 +339,15 @@
         private System.Windows.Forms.Label lblNumber;
         private System.Windows.Forms.MaskedTextBox mtxbCpf;
         private System.Windows.Forms.MaskedTextBox mtxbNumber;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
     }
 }
 
