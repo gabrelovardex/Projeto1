@@ -87,5 +87,11 @@
   <ItemGroup>
     <None Include="Resources\mickeydisney.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mickey.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lgbt.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

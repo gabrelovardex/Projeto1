@@ -56,6 +56,8 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button1 = new System.Windows.Forms.Button();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lblNome
@@ -160,13 +162,14 @@
             // 
             this.btnMickey.BackColor = System.Drawing.Color.Coral;
             this.btnMickey.BackgroundImage = global::Projeto1.Properties.Resources.mickeydisney;
-            this.btnMickey.ForeColor = System.Drawing.Color.Crimson;
+            this.btnMickey.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMickey.ForeColor = System.Drawing.Color.Black;
             this.btnMickey.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMickey.Location = new System.Drawing.Point(373, 114);
             this.btnMickey.Name = "btnMickey";
             this.btnMickey.Size = new System.Drawing.Size(309, 172);
             this.btnMickey.TabIndex = 0;
-            this.btnMickey.Text = "                                            ";
+            this.btnMickey.Text = "      INSERIR                                      ";
             this.btnMickey.UseVisualStyleBackColor = false;
             this.btnMickey.Click += new System.EventHandler(this.btnMickey_Click);
             // 
@@ -236,6 +239,7 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
@@ -252,6 +256,7 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
             // 
             // columnHeader1
             // 
@@ -285,11 +290,29 @@
             // 
             this.columnHeader8.Text = "DISNEY";
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::Projeto1.Properties.Resources.lgbt;
+            this.button1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(734, 114);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(309, 172);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "EDITAR";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "ID";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Projeto1.Properties.Resources.mickey;
             this.ClientSize = new System.Drawing.Size(1224, 662);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.mtxbNumber);
             this.Controls.Add(this.mtxbCpf);
@@ -348,6 +371,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
     }
 }
 

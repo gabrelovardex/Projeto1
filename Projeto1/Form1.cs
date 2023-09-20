@@ -13,6 +13,7 @@ namespace Projeto1
 {
     public partial class Form1 : Form
     {
+        private int ID;
         public Form1()
         {
             InitializeComponent();
@@ -44,7 +45,7 @@ namespace Projeto1
                         string answer = (string)dr["FILMEPREFE"];
                         string music = (string)dr["MUSICAPREFE"];
                         string person = (string)dr["PERSONAGEMPREFE"];
-                        string disney = (string)dr["DISNEY"];
+                        string disney = (string)dr["DYSNEY"];
 
                         ListViewItem lv = new ListViewItem(cpf);
                         lv.SubItems.Add(cpf);
@@ -109,7 +110,7 @@ namespace Projeto1
 
             sqlCommand.Connection = connection.ReturnConnection();
             sqlCommand.CommandText = @"INSERT INTO disney_quiz VALUES 
-            (@CPF, @TELEFONE, @OPINIAO, @OPINIAO2, @FILMEPREFE, @MUSICAPREFE, @PERSONAGEMPREFE, @DISNEY)";
+            (@CPF, @TELEFONE, @OPINIAO, @OPINIAO2, @FILMEPREFE, @MUSICAPREFE, @PERSONAGEMPREFE, @DYSNEY)";
            
             sqlCommand.Parameters.AddWithValue("@CPF", mtxbCpf.Text);
             sqlCommand.Parameters.AddWithValue("@TELEFONE", mtxbNumber.Text);
@@ -118,7 +119,7 @@ namespace Projeto1
             sqlCommand.Parameters.AddWithValue("@FILMEPREFE", txbQuest.Text);
             sqlCommand.Parameters.AddWithValue("@MUSICAPREFE", txbMusic.Text);
             sqlCommand.Parameters.AddWithValue("@PERSONAGEMPREFE", txbPerson.Text);
-            sqlCommand.Parameters.AddWithValue("@DISNEY", txbDisney.Text);
+            sqlCommand.Parameters.AddWithValue("@DYSNEY", txbDisney.Text);
 
             sqlCommand.ExecuteNonQuery();
 
@@ -198,6 +199,70 @@ namespace Projeto1
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Connection connection = new Connection();
+            SqlCommand sqlCommand = new SqlCommand();
+
+            sqlCommand.Connection = connection.ReturnConnection();
+            sqlCommand.CommandText = @"UPDATE disney_quiz SET
+             CPF = @CPF, 
+             TELEFONE = @TELEFONE, 
+             OPINIAO = @OPINIAO, 
+             OPINIAO2 = @OPINIAO2, 
+             FILMEPREFE = @FILMEPREFE, 
+             MUSICAPREFE = @MUSICAPREFE, 
+             PERSONAGEMPREFE = @PERSONAGEMPREFE, 
+             DYSNEY = @DYSNEY,
+             WHERE ID = @ID";
+
+            sqlCommand.Parameters.AddWithValue("@CPF", mtxbCpf.Text);
+            sqlCommand.Parameters.AddWithValue("@TELEFONE", mtxbNumber.Text);
+            sqlCommand.Parameters.AddWithValue("@OPINIAO", txbNome.Text);
+            sqlCommand.Parameters.AddWithValue("@OPINIAO2", txbPront.Text);
+            sqlCommand.Parameters.AddWithValue("@FILMEPREFE", txbQuest.Text);
+            sqlCommand.Parameters.AddWithValue("@MUSICAPREFE", txbMusic.Text);
+            sqlCommand.Parameters.AddWithValue("@PERSONAGEMPREFE", txbPerson.Text);
+            sqlCommand.Parameters.AddWithValue("@DYSNEY", txbDisney.Text);
+            sqlCommand.Parameters.AddWithValue("@ID", txbDisney.Text);
+
+            sqlCommand.ExecuteNonQuery();
+
+            MessageBox.Show("Cadastrado com sucesso",
+             "AVISO",
+             MessageBoxButtons.OK,
+             MessageBoxIcon.Information);
+
+            mtxbCpf.Clear();
+            mtxbNumber.Clear();
+            txbNome.Clear();
+            txbPront.Clear();
+            txbQuest.Clear();
+            txbMusic.Clear();
+            txbPerson.Clear();
+            txbDisney.Clear();
+
+            UpdateListView();
+
+        }
+
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int index;
+            index = listView1.FocusedItem.Index;
+            ID = int.Parse(listView1.Items[index].SubItems[0].Text);
+            mtxbCpf.Text = listView1.Items[index].SubItems[1].Text;
+            mtxbNumber.Text = listView1.Items[index].SubItems[2].Text;
+            txbNome.Text = listView1.Items[index].SubItems[3].Text;
+            txbPront.Text = listView1.Items[index].SubItems[4].Text;
+            txbQuest.Text = listView1.Items[index].SubItems[5].Text;
+            txbMusic.Text = listView1.Items[index].SubItems[6].Text;
+            txbPerson.Text = listView1.Items[index].SubItems[7].Text;
+            txbDisney.Text = listView1.Items[index].SubItems[8].Text;
 
         }
     }
