@@ -21,55 +21,55 @@ namespace Projeto1
 
         private void UpdateListView()
         {
-          
-             listView1.Items.Clear();
 
-                Connection conn = new Connection();
-                SqlCommand sqlCom = new SqlCommand();
+            listView1.Items.Clear();
 
-                sqlCom.Connection = conn.ReturnConnection();
-                sqlCom.CommandText = "SELECT * FROM disney_quiz";
+            Connection conn = new Connection();
+            SqlCommand sqlCom = new SqlCommand();
 
-                try
+            sqlCom.Connection = conn.ReturnConnection();
+            sqlCom.CommandText = "SELECT * FROM disney_quiz";
+
+            try
+            {
+                SqlDataReader dr = sqlCom.ExecuteReader();
+
+                //Enquanto for possível continuar a leitura das linhas que foram retornadas na consulta, execute.
+                while (dr.Read())
                 {
-                    SqlDataReader dr = sqlCom.ExecuteReader();
+                    ID = (int)(dr["ID"]);
+                    string cpf = (string)dr["CPF"];
+                    string number = (string)dr["TELEFONE"];
+                    string name = (string)dr["OPINIAO"];
+                    string enrollment = (string)dr["OPINIAO2"];
+                    string answer = (string)dr["FILMEPREFE"];
+                    string music = (string)dr["MUSICAPREFE"];
+                    string person = (string)dr["PERSONAGEMPREFE"];
+                    string disney = (string)dr["DYSNEY"];
 
-                    //Enquanto for possível continuar a leitura das linhas que foram retornadas na consulta, execute.
-                    while (dr.Read())
-                    {
-                       
-                        string cpf = (string)dr["CPF"];
-                        string number = (string)dr["TELEFONE"];
-                        string name = (string)dr["OPINIAO"];
-                        string enrollment = (string)dr["OPINIAO2"];
-                        string answer = (string)dr["FILMEPREFE"];
-                        string music = (string)dr["MUSICAPREFE"];
-                        string person = (string)dr["PERSONAGEMPREFE"];
-                        string disney = (string)dr["DYSNEY"];
+                    ListViewItem lv = new ListViewItem(ID.ToString());
+                    lv.SubItems.Add(cpf);
+                    lv.SubItems.Add(number);
+                    lv.SubItems.Add(name);
+                    lv.SubItems.Add(enrollment);
+                    lv.SubItems.Add(answer);
+                    lv.SubItems.Add(music);
+                    lv.SubItems.Add(person);
+                    lv.SubItems.Add(disney);
+                    listView1.Items.Add(lv);
 
-                        ListViewItem lv = new ListViewItem(cpf);
-                        lv.SubItems.Add(cpf);
-                        lv.SubItems.Add(number);
-                        lv.SubItems.Add(name);
-                        lv.SubItems.Add(enrollment);
-                        lv.SubItems.Add(answer);
-                        lv.SubItems.Add(music);
-                        lv.SubItems.Add(person);
-                        lv.SubItems.Add(disney);
-                        listView1.Items.Add(lv);
+                }
+                dr.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
 
-                    }
-                    dr.Close();
-                }
-                catch (Exception err)
-                {
-                    MessageBox.Show(err.Message);
-                }
-                finally
-                {
-                    conn.CloseConnection();
-                }
-            
 
 
         }
@@ -111,7 +111,7 @@ namespace Projeto1
             sqlCommand.Connection = connection.ReturnConnection();
             sqlCommand.CommandText = @"INSERT INTO disney_quiz VALUES 
             (@CPF, @TELEFONE, @OPINIAO, @OPINIAO2, @FILMEPREFE, @MUSICAPREFE, @PERSONAGEMPREFE, @DYSNEY)";
-           
+
             sqlCommand.Parameters.AddWithValue("@CPF", mtxbCpf.Text);
             sqlCommand.Parameters.AddWithValue("@TELEFONE", mtxbNumber.Text);
             sqlCommand.Parameters.AddWithValue("@OPINIAO", txbNome.Text);
@@ -140,7 +140,7 @@ namespace Projeto1
             UpdateListView();
 
         }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -193,7 +193,7 @@ namespace Projeto1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            UpdateListView();
 
         }
 
@@ -202,7 +202,7 @@ namespace Projeto1
 
         }
 
-        
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             Connection connection = new Connection();
@@ -217,7 +217,7 @@ namespace Projeto1
              FILMEPREFE = @FILMEPREFE, 
              MUSICAPREFE = @MUSICAPREFE, 
              PERSONAGEMPREFE = @PERSONAGEMPREFE, 
-             DYSNEY = @DYSNEY,
+             DYSNEY = @DYSNEY
              WHERE ID = @ID";
 
             sqlCommand.Parameters.AddWithValue("@CPF", mtxbCpf.Text);
@@ -228,11 +228,11 @@ namespace Projeto1
             sqlCommand.Parameters.AddWithValue("@MUSICAPREFE", txbMusic.Text);
             sqlCommand.Parameters.AddWithValue("@PERSONAGEMPREFE", txbPerson.Text);
             sqlCommand.Parameters.AddWithValue("@DYSNEY", txbDisney.Text);
-            sqlCommand.Parameters.AddWithValue("@ID", txbDisney.Text);
+            sqlCommand.Parameters.AddWithValue("@ID", ID);
 
             sqlCommand.ExecuteNonQuery();
 
-            MessageBox.Show("Cadastrado com sucesso",
+            MessageBox.Show("Editado com sucesso",
              "AVISO",
              MessageBoxButtons.OK,
              MessageBoxIcon.Information);
@@ -264,6 +264,44 @@ namespace Projeto1
             txbPerson.Text = listView1.Items[index].SubItems[7].Text;
             txbDisney.Text = listView1.Items[index].SubItems[8].Text;
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            Connection connection = new Connection();
+            SqlCommand sqlCommand = new SqlCommand();
+
+            sqlCommand.Connection = connection.ReturnConnection();
+            sqlCommand.CommandText = @"DELETE FROM disney_quiz WHERE Id = @id";
+            sqlCommand.Parameters.AddWithValue("@ID", ID);
+            try
+            {
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception err)
+            {
+                throw new Exception("Erro: Problemas ao excluir usuário no banco.\n" + err.Message);
+            }
+            finally
+            {
+                connection.CloseConnection();
+                
+                mtxbCpf.Clear();
+                mtxbNumber.Clear();
+                txbNome.Clear();
+                txbPront.Clear();
+                txbQuest.Clear();
+                txbMusic.Clear();
+                txbPerson.Clear();
+                txbDisney.Clear();
+
+                UpdateListView();
+
+
+
+
+            }
         }
     }
 }
