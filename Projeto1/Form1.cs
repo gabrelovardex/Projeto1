@@ -268,25 +268,10 @@ namespace Projeto1
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
+            PerfilDisneyDAO perfildisneyobjeto = new PerfilDisneyDAO();
+            perfildisneyobjeto.DeletePerfil(ID);
 
-            Connection connection = new Connection();
-            SqlCommand sqlCommand = new SqlCommand();
-
-            sqlCommand.Connection = connection.ReturnConnection();
-            sqlCommand.CommandText = @"DELETE FROM disney_quiz WHERE Id = @id";
-            sqlCommand.Parameters.AddWithValue("@ID", ID);
-            try
-            {
-                sqlCommand.ExecuteNonQuery();
-            }
-            catch (Exception err)
-            {
-                throw new Exception("Erro: Problemas ao excluir usuário no banco.\n" + err.Message);
-            }
-            finally
-            {
-                connection.CloseConnection();
-                
                 mtxbCpf.Clear();
                 mtxbNumber.Clear();
                 txbNome.Clear();
@@ -298,10 +283,11 @@ namespace Projeto1
 
                 UpdateListView();
 
+            MessageBox.Show("Deletado com sucesso",
+             "AVISO",
+             MessageBoxButtons.OK,
+             MessageBoxIcon.Information);
 
-
-
-            }
         }
     }
 }
