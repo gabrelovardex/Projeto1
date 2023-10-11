@@ -37,7 +37,7 @@ namespace Projeto1
                 //Enquanto for possível continuar a leitura das linhas que foram retornadas na consulta, execute.
                 while (dr.Read())
                 {
-                    ID = (int)(dr["ID"]);
+                    int ID = (int)(dr["ID"]);
                     string cpf = (string)dr["CPF"];
                     string number = (string)dr["TELEFONE"];
                     string name = (string)dr["OPINIAO"];
@@ -77,56 +77,33 @@ namespace Projeto1
 
         private void btnMickey_Click(object sender, EventArgs e)
         {
-            //string name = txbNome.Text;
-            //string enrollment = txbPront.Text;
-            //string answer =txbQuest.Text;
-            //string music = txbMusic.Text;   
-            //string person = txbPerson.Text;
-            //string disney = txbDisney.Text;
-            //string cpf = mtxbCpf.Text;
-            //string number = mtxbNumber.Text;
+            try
+            {
+                PerfilDisney perfildisneyobjeto = new PerfilDisney(
+                    mtxbCpf.Text,
+                    mtxbNumber.Text,
+                    txbNome.Text,
+                    txbPront.Text,
+                    txbQuest.Text,
+                    txbMusic.Text,
+                    txbPerson.Text,
+                    txbDisney.Text
+                    );
 
-            //string message = "\nNome: " + name +
-            //                 "\nOpnião: " + enrollment +
-            //                 "\nResposta: " + answer +
-            //                 "\nMúsica: " + music +
-            //                 "\nPersonagem: " + person +
-            //                 "\nOpnião: " + disney +
-            //                 "\nCPF: " + cpf +
-            //                 "\nNUMER O:" + number;
+                PerfilDisneyDAO perfildysneyobjeto = new PerfilDisneyDAO();
+                perfildysneyobjeto.InsertPerfil(perfildisneyobjeto);
 
+                MessageBox.Show("Cadastrado com sucesso",
+                 "AVISO",
+                 MessageBoxButtons.OK,
+                 MessageBoxIcon.Information);
 
+            }
+            catch(Exception error)    
+            {
+                MessageBox.Show(error.Message);
+            }
 
-
-            //MessageBox.Show(
-            //    message,
-            //    "QUIZ: ",
-            //    MessageBoxButtons.OK,
-            //    MessageBoxIcon.Information
-            //     );
-
-            Connection connection = new Connection();
-            SqlCommand sqlCommand = new SqlCommand();
-
-            sqlCommand.Connection = connection.ReturnConnection();
-            sqlCommand.CommandText = @"INSERT INTO disney_quiz VALUES 
-            (@CPF, @TELEFONE, @OPINIAO, @OPINIAO2, @FILMEPREFE, @MUSICAPREFE, @PERSONAGEMPREFE, @DYSNEY)";
-
-            sqlCommand.Parameters.AddWithValue("@CPF", mtxbCpf.Text);
-            sqlCommand.Parameters.AddWithValue("@TELEFONE", mtxbNumber.Text);
-            sqlCommand.Parameters.AddWithValue("@OPINIAO", txbNome.Text);
-            sqlCommand.Parameters.AddWithValue("@OPINIAO2", txbPront.Text);
-            sqlCommand.Parameters.AddWithValue("@FILMEPREFE", txbQuest.Text);
-            sqlCommand.Parameters.AddWithValue("@MUSICAPREFE", txbMusic.Text);
-            sqlCommand.Parameters.AddWithValue("@PERSONAGEMPREFE", txbPerson.Text);
-            sqlCommand.Parameters.AddWithValue("@DYSNEY", txbDisney.Text);
-
-            sqlCommand.ExecuteNonQuery();
-
-            MessageBox.Show("Cadastrado com sucesso",
-             "AVISO",
-             MessageBoxButtons.OK,
-             MessageBoxIcon.Information);
 
             mtxbCpf.Clear();
             mtxbNumber.Clear();
@@ -205,37 +182,34 @@ namespace Projeto1
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Connection connection = new Connection();
-            SqlCommand sqlCommand = new SqlCommand();
 
-            sqlCommand.Connection = connection.ReturnConnection();
-            sqlCommand.CommandText = @"UPDATE disney_quiz SET
-             CPF = @CPF, 
-             TELEFONE = @TELEFONE, 
-             OPINIAO = @OPINIAO, 
-             OPINIAO2 = @OPINIAO2, 
-             FILMEPREFE = @FILMEPREFE, 
-             MUSICAPREFE = @MUSICAPREFE, 
-             PERSONAGEMPREFE = @PERSONAGEMPREFE, 
-             DYSNEY = @DYSNEY
-             WHERE ID = @ID";
+            try
+            {
+                PerfilDisney perfildisneyobjeto = new PerfilDisney(
+                    mtxbCpf.Text,
+                    mtxbNumber.Text,
+                    txbNome.Text,
+                    txbPront.Text,
+                    txbQuest.Text,
+                    txbMusic.Text,
+                    txbPerson.Text,
+                    txbDisney.Text
+                    );
 
-            sqlCommand.Parameters.AddWithValue("@CPF", mtxbCpf.Text);
-            sqlCommand.Parameters.AddWithValue("@TELEFONE", mtxbNumber.Text);
-            sqlCommand.Parameters.AddWithValue("@OPINIAO", txbNome.Text);
-            sqlCommand.Parameters.AddWithValue("@OPINIAO2", txbPront.Text);
-            sqlCommand.Parameters.AddWithValue("@FILMEPREFE", txbQuest.Text);
-            sqlCommand.Parameters.AddWithValue("@MUSICAPREFE", txbMusic.Text);
-            sqlCommand.Parameters.AddWithValue("@PERSONAGEMPREFE", txbPerson.Text);
-            sqlCommand.Parameters.AddWithValue("@DYSNEY", txbDisney.Text);
-            sqlCommand.Parameters.AddWithValue("@ID", ID);
+                PerfilDisneyDAO perfildysneyobjeto = new PerfilDisneyDAO();
+                perfildysneyobjeto.UpdatePerfil(perfildisneyobjeto);
 
-            sqlCommand.ExecuteNonQuery();
+                MessageBox.Show("Editado com sucesso",
+                 "AVISO",
+                 MessageBoxButtons.OK,
+                 MessageBoxIcon.Information);
 
-            MessageBox.Show("Editado com sucesso",
-             "AVISO",
-             MessageBoxButtons.OK,
-             MessageBoxIcon.Information);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+
 
             mtxbCpf.Clear();
             mtxbNumber.Clear();

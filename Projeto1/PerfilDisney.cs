@@ -36,58 +36,111 @@ namespace Projeto1
             PERSONAGEMPREFE = personagemprefe;
             DYSNEY = dysney;
         }
-
-        public int id
+        public PerfilDisney(int id,
+                            string cpf,
+                            string telefone,
+                            string opiniao,
+                            string opiniao2,
+                            string filmeprefe,
+                            string musicaprefe,
+                            string personagemprefe,
+                            string dysney)
         {
-            set {_id = value;}
-            get { return _id; } 
+            Id = id; 
+            CPF = cpf;
+            TELEFONE = telefone;
+            OPINIAO = opiniao;
+            OPINIAO2 = opiniao2;
+            FILMEPREFE = filmeprefe;
+            MUSICAPREFE = musicaprefe;
+            PERSONAGEMPREFE = personagemprefe;
+            DYSNEY = dysney;
+        }
+
+        public int Id
+        {
+            set {_id = value;} // atribuir valor
+            get { return _id; } // retorna valor
         }      
 
         public string CPF 
         { 
-            set { _cpf = value; }
+            set { 
+                if(string.IsNullOrEmpty(value))
+                    throw new Exception("Campo CPF está vazio");
+
+                _cpf = value; 
+            }
             get { return _cpf; }
         }
         
         public string TELEFONE
         { 
-            set { _telefone = value; }
+            set {
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("Campo TELEFONE está vazio");
+
+                _telefone = value; }
             get { return _telefone; }
         }
         
         public string OPINIAO
         { 
-            set { _opiniao = value; }
+            set {
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("Campo OPINIAO está vazio");
+               
+                _opiniao = value; }
             get { return _opiniao; }
         }
         
         public string OPINIAO2
         { 
-            set { _opiniao2 = value; }
+            set {
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("Campo OPINIAO2 está vazio");
+
+                _opiniao2 = value; }
             get { return _opiniao2; }
         }
         
         public string FILMEPREFE
         { 
-            set { _filmeprefe = value; }
+            set {
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("Campo FILME PREFERIDO está vazio");
+
+                _filmeprefe = value; }
             get { return _filmeprefe; }
         }
         
         public string MUSICAPREFE
         { 
-            set { _musicaprefe = value; }
+            set {
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("Campo MUSICA PREFERIDA está vazio");
+
+                _musicaprefe = value; }
             get { return _musicaprefe; }
         }
         
         public string PERSONAGEMPREFE
         { 
-            set { _personagemprefe = value; }
+            set {
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("Campo PERSONAGEM PREFERIDO está vazio");
+
+                _personagemprefe = value; }
             get { return _personagemprefe; }
         }
         
         public string DYSNEY
         { 
-            set { _dysney = value; }
+            set {
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("Campo DYSNEY está vazio");
+
+                _dysney = value; }
             get { return _dysney; }
         }
 
