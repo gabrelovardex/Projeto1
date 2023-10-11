@@ -23,52 +23,31 @@ namespace Projeto1
         {
 
             listView1.Items.Clear();
-
-            Connection conn = new Connection();
-            SqlCommand sqlCom = new SqlCommand();
-
-            sqlCom.Connection = conn.ReturnConnection();
-            sqlCom.CommandText = "SELECT * FROM disney_quiz";
+            
+            PerfilDisneyDAO perfilDisneyDAO = new PerfilDisneyDAO();
+            List<PerfilDisney> perfils = perfilDisneyDAO.SelectPerfil();
 
             try
             {
-                SqlDataReader dr = sqlCom.ExecuteReader();
-
-                //Enquanto for possível continuar a leitura das linhas que foram retornadas na consulta, execute.
-                while (dr.Read())
+                foreach (PerfilDisney perfil in perfils)
                 {
-                    int ID = (int)(dr["ID"]);
-                    string cpf = (string)dr["CPF"];
-                    string number = (string)dr["TELEFONE"];
-                    string name = (string)dr["OPINIAO"];
-                    string enrollment = (string)dr["OPINIAO2"];
-                    string answer = (string)dr["FILMEPREFE"];
-                    string music = (string)dr["MUSICAPREFE"];
-                    string person = (string)dr["PERSONAGEMPREFE"];
-                    string disney = (string)dr["DYSNEY"];
-
-                    ListViewItem lv = new ListViewItem(ID.ToString());
-                    lv.SubItems.Add(cpf);
-                    lv.SubItems.Add(number);
-                    lv.SubItems.Add(name);
-                    lv.SubItems.Add(enrollment);
-                    lv.SubItems.Add(answer);
-                    lv.SubItems.Add(music);
-                    lv.SubItems.Add(person);
-                    lv.SubItems.Add(disney);
+                    ListViewItem lv = new ListViewItem(perfil.Id.ToString());
+                    lv.SubItems.Add(perfil.CPF);
+                    lv.SubItems.Add(perfil.TELEFONE);
+                    lv.SubItems.Add(perfil.OPINIAO);
+                    lv.SubItems.Add(perfil.OPINIAO2);
+                    lv.SubItems.Add(perfil.FILMEPREFE);
+                    lv.SubItems.Add(perfil.MUSICAPREFE);
+                    lv.SubItems.Add(perfil.PERSONAGEMPREFE);
+                    lv.SubItems.Add(perfil.DYSNEY);
                     listView1.Items.Add(lv);
-
                 }
-                dr.Close();
             }
             catch (Exception err)
             {
                 MessageBox.Show(err.Message);
             }
-            finally
-            {
-                conn.CloseConnection();
-            }
+            
 
 
 
