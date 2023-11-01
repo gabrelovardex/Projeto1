@@ -168,7 +168,7 @@
             this.btnMickey.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMickey.Location = new System.Drawing.Point(254, 110);
             this.btnMickey.Name = "btnMickey";
-            this.btnMickey.Size = new System.Drawing.Size(309, 172);
+            this.btnMickey.Size = new System.Drawing.Size(309, 171);
             this.btnMickey.TabIndex = 0;
             this.btnMickey.Text = "      INSERIR                                      ";
             this.btnMickey.UseVisualStyleBackColor = false;
@@ -302,7 +302,7 @@
             this.button1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(903, 112);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(309, 172);
+            this.button1.Size = new System.Drawing.Size(309, 169);
             this.button1.TabIndex = 22;
             this.button1.Text = "EDITAR";
             this.button1.UseVisualStyleBackColor = true;
@@ -313,7 +313,7 @@
             this.button2.BackgroundImage = global::Projeto1.Properties.Resources.lgbtqia;
             this.button2.Location = new System.Drawing.Point(569, 115);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(309, 167);
+            this.button2.Size = new System.Drawing.Size(309, 189);
             this.button2.TabIndex = 23;
             this.button2.Text = "EXCLUIR";
             this.button2.UseVisualStyleBackColor = true;

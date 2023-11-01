@@ -73,6 +73,26 @@ namespace Projeto1.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DIIIIIIIII {
+            get {
+                object obj = ResourceManager.GetObject("DIIIIIIIII", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap disney {
+            get {
+                object obj = ResourceManager.GetObject("disney", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lgbt {
             get {
                 object obj = ResourceManager.GetObject("lgbt", resourceCulture);
@@ -106,6 +126,16 @@ namespace Projeto1.Properties {
         internal static System.Drawing.Bitmap mickeydisney {
             get {
                 object obj = ResourceManager.GetObject("mickeydisney", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PPPPPPPPPP {
+            get {
+                object obj = ResourceManager.GetObject("PPPPPPPPPP", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

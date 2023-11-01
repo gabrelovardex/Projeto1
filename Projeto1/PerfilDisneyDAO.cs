@@ -42,18 +42,17 @@ namespace Projeto1
 
                 }
                 dr.Close();
-                return perfils;
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+                throw new Exception(err.Message);
             }
             finally
             {
                 conn.CloseConnection();
             }
 
-            return null;
+            return perfils;
 
         }
         public void UpdatePerfil(PerfilDisney perfil)
