@@ -10,6 +10,43 @@ namespace Projeto1
 {
     internal class PerfilDisneyDAO
     {
+
+        public bool LoginPerfil(string usuario, string senha)
+        {
+            Connection conn = new Connection();
+            SqlCommand sqlCom = new SqlCommand();
+
+            sqlCom.Connection = conn.ReturnConnection();
+            sqlCom.CommandText = "SELECT * FROM disney_quiz WHERE" + 
+                "USUARIO = @usuario AND SENHA = @senha";
+
+            sqlCom.Parameters.AddWithValue("@usuario", usuario);
+            sqlCom.Parameters.AddWithValue("@senha",senha);
+
+            try
+            {
+                SqlDataReader dr = sqlCom.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Close();
+                    return true;
+                }
+
+                dr.Close();
+                return false;
+
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+
+
+        }
         public List<PerfilDisney> SelectPerfil()
         {
             Connection conn = new Connection();
