@@ -53,7 +53,7 @@ namespace Projeto1
             SqlCommand sqlCom = new SqlCommand();
 
             sqlCom.Connection = conn.ReturnConnection();
-            sqlCom.CommandText = "SELECT * FROM disney_quiz";
+            sqlCom.CommandText = "SELECT * FROM dysney_quiz";
 
             List<PerfilDisney> perfils = new List<PerfilDisney>(); 
             try
@@ -71,7 +71,9 @@ namespace Projeto1
                     (string)dr["FILMEPREFE"],
                     (string)dr["MUSICAPREFE"],
                     (string)dr["PERSONAGEMPREFE"],
-                    (string)dr["DYSNEY"]
+                    (string)dr["DYSNEY"],
+                    (string)dr["USUARIO"],
+                    (string)dr["SENHA"]
                     );
 
                     perfils.Add(objeto);
@@ -107,6 +109,8 @@ namespace Projeto1
              MUSICAPREFE = @MUSICAPREFE, 
              PERSONAGEMPREFE = @PERSONAGEMPREFE, 
              DYSNEY = @DYSNEY
+             USUARIO = @usuario
+             SENHA = @senha
              WHERE ID = @ID";
 
             sqlCommand.Parameters.AddWithValue("@CPF", perfil.CPF);
@@ -117,6 +121,8 @@ namespace Projeto1
             sqlCommand.Parameters.AddWithValue("@MUSICAPREFE", perfil.MUSICAPREFE);
             sqlCommand.Parameters.AddWithValue("@PERSONAGEMPREFE", perfil.PERSONAGEMPREFE);
             sqlCommand.Parameters.AddWithValue("@DYSNEY", perfil.DYSNEY);
+            sqlCommand.Parameters.AddWithValue("@usuario", perfil.USUARIO);
+            sqlCommand.Parameters.AddWithValue("@senha", perfil.SENHA);
             sqlCommand.Parameters.AddWithValue("@ID", perfil.Id);
 
             sqlCommand.ExecuteNonQuery();
@@ -140,6 +146,8 @@ namespace Projeto1
             sqlCommand.Parameters.AddWithValue("@MUSICAPREFE", perfil.MUSICAPREFE);
             sqlCommand.Parameters.AddWithValue("@PERSONAGEMPREFE", perfil.PERSONAGEMPREFE);
             sqlCommand.Parameters.AddWithValue("@DYSNEY", perfil.DYSNEY);
+            sqlCommand.Parameters.AddWithValue("@usuario", perfil.USUARIO);
+            sqlCommand.Parameters.AddWithValue("@senha", perfil.SENHA);
 
             sqlCommand.ExecuteNonQuery();
 

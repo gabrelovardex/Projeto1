@@ -64,6 +64,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblSENHA = new System.Windows.Forms.Label();
             this.lblUSUARIO = new System.Windows.Forms.Label();
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lblNome
@@ -254,12 +256,14 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7,
-            this.columnHeader8});
+            this.columnHeader8,
+            this.columnHeader11,
+            this.columnHeader10});
             this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(582, 399);
+            this.listView1.Location = new System.Drawing.Point(406, 399);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(542, 206);
+            this.listView1.Size = new System.Drawing.Size(662, 206);
             this.listView1.TabIndex = 21;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -366,6 +370,14 @@
             this.lblUSUARIO.TabIndex = 28;
             this.lblUSUARIO.Text = "Crie um USUARIO para sempre ter acesso ao nosso quiz:";
             // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "USUARIO";
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "SENHA";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -445,6 +457,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblSENHA;
         private System.Windows.Forms.Label lblUSUARIO;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
     }
 }
 

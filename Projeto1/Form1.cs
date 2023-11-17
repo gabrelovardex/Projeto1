@@ -51,6 +51,8 @@ namespace Projeto1
                     lv.SubItems.Add(perfil.MUSICAPREFE);
                     lv.SubItems.Add(perfil.PERSONAGEMPREFE);
                     lv.SubItems.Add(perfil.DYSNEY);
+                    lv.SubItems.Add(perfil.USUARIO);
+                    lv.SubItems.Add(perfil.SENHA);
                     listView1.Items.Add(lv);
                 }
             }
@@ -119,7 +121,9 @@ namespace Projeto1
                     txbQuest.Text,
                     txbMusic.Text,
                     txbPerson.Text,
-                    txbDisney.Text
+                    txbDisney.Text,
+                    txbUsuario.Text,
+                    txbSenha.Text
                     );
 
                 PerfilDisneyDAO perfildysneyobjeto = new PerfilDisneyDAO();
@@ -145,6 +149,8 @@ namespace Projeto1
             txbMusic.Clear();
             txbPerson.Clear();
             txbDisney.Clear();
+            txbUsuario.Clear();
+            txbSenha.Clear();
 
             UpdateListView();
 
@@ -225,7 +231,9 @@ namespace Projeto1
                     txbQuest.Text,
                     txbMusic.Text,
                     txbPerson.Text,
-                    txbDisney.Text
+                    txbDisney.Text,
+                    txbUsuario.Text,
+                    txbSenha.Text
                     );
 
                 PerfilDisneyDAO perfildysneyobjeto = new PerfilDisneyDAO();
@@ -251,6 +259,8 @@ namespace Projeto1
             txbMusic.Clear();
             txbPerson.Clear();
             txbDisney.Clear();
+            txbUsuario.Clear();
+            txbSenha.Clear();
 
             UpdateListView();
 
@@ -269,6 +279,8 @@ namespace Projeto1
             txbMusic.Text = listView1.Items[index].SubItems[6].Text;
             txbPerson.Text = listView1.Items[index].SubItems[7].Text;
             txbDisney.Text = listView1.Items[index].SubItems[8].Text;
+            txbUsuario.Text = listView1.Items[index].SubItems[9].Text;
+            txbSenha.Text = listView1.Items[index].SubItems[10].Text;
 
         }
 
@@ -286,8 +298,10 @@ namespace Projeto1
                 txbMusic.Clear();
                 txbPerson.Clear();
                 txbDisney.Clear();
+                txbUsuario.Clear();
+                txbSenha.Clear();
 
-                UpdateListView();
+            UpdateListView();
 
             MessageBox.Show("Deletado com sucesso",
              "AVISO",

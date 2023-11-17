@@ -17,15 +17,20 @@ namespace Projeto1
         private string _musicaprefe;
         private string _personagemprefe;
         private string _dysney;
+        private string _usuario;
+        private string _senha;   
 
-        public PerfilDisney(string cpf, 
-                            string telefone, 
-                            string opiniao, 
-                            string opiniao2, 
-                            string filmeprefe, 
-                            string musicaprefe, 
-                            string personagemprefe, 
-                            string dysney){
+        public PerfilDisney(string cpf,
+                            string telefone,
+                            string opiniao,
+                            string opiniao2,
+                            string filmeprefe,
+                            string musicaprefe,
+                            string personagemprefe,
+                            string dysney,
+                            string usuario,
+                            string senha)
+        {
 
             CPF = cpf;
             TELEFONE = telefone;
@@ -35,7 +40,9 @@ namespace Projeto1
             MUSICAPREFE = musicaprefe;
             PERSONAGEMPREFE = personagemprefe;
             DYSNEY = dysney;
-        }
+            USUARIO = usuario;
+            SENHA = senha;
+         }
         public PerfilDisney(int id,
                             string cpf,
                             string telefone,
@@ -44,7 +51,9 @@ namespace Projeto1
                             string filmeprefe,
                             string musicaprefe,
                             string personagemprefe,
-                            string dysney)
+                            string dysney,
+                            string usuario,
+                            string senha)
         {
             Id = id; 
             CPF = cpf;
@@ -55,6 +64,8 @@ namespace Projeto1
             MUSICAPREFE = musicaprefe;
             PERSONAGEMPREFE = personagemprefe;
             DYSNEY = dysney;
+            USUARIO = usuario;
+            SENHA = senha;
         }
 
         public int Id
@@ -142,6 +153,30 @@ namespace Projeto1
 
                 _dysney = value; }
             get { return _dysney; }
+        }
+
+        public string USUARIO
+        {
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("Campo USUARIO está vazio");
+
+                _usuario = value;
+            }
+            get { return _usuario; }
+        }
+
+        public string SENHA
+        {
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("Campo SENHA está vazio");
+
+                _senha = value;
+            }
+            get { return _senha; }
         }
 
     }
