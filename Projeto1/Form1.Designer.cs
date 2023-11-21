@@ -57,6 +57,8 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.txbUsuario = new System.Windows.Forms.TextBox();
@@ -64,8 +66,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblSENHA = new System.Windows.Forms.Label();
             this.lblUSUARIO = new System.Windows.Forms.Label();
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lblNome
@@ -306,6 +306,14 @@
             // 
             this.columnHeader8.Text = "DISNEY";
             // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "USUARIO";
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "SENHA";
+            // 
             // button1
             // 
             this.button1.BackgroundImage = global::Projeto1.Properties.Resources.lgbt;
@@ -340,6 +348,7 @@
             // 
             this.txbSenha.Location = new System.Drawing.Point(39, 568);
             this.txbSenha.Name = "txbSenha";
+            this.txbSenha.PasswordChar = '*';
             this.txbSenha.Size = new System.Drawing.Size(100, 20);
             this.txbSenha.TabIndex = 25;
             // 
@@ -369,14 +378,6 @@
             this.lblUSUARIO.Size = new System.Drawing.Size(278, 13);
             this.lblUSUARIO.TabIndex = 28;
             this.lblUSUARIO.Text = "Crie um USUARIO para sempre ter acesso ao nosso quiz:";
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "USUARIO";
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "SENHA";
             // 
             // Form1
             // 

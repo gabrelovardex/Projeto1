@@ -42,19 +42,8 @@ namespace Projeto1
         private void button1_Click(object sender, EventArgs e)
         {
 
-            //Form2 perfildisneyobjeto = new PerfilDisneyDAO();
-            //perfildisneyobjeto.DeletePerfil(ID);
-
-            //txbUsuario.clear();
-            //txbSenha.clear();
-
-            //UpdateListView();
-
-            //MessageBox.Show("Deletado com sucesso",
-            // "AVISO",
-            // MessageBoxButtons.OK,
-            // MessageBoxIcon.Information);
-
+            txbUsuario.Clear();
+            txbSenha.Clear();
         }
 
         private void button2_Click_1(object sender, EventArgs e)

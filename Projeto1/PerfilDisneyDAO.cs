@@ -17,8 +17,8 @@ namespace Projeto1
             SqlCommand sqlCom = new SqlCommand();
 
             sqlCom.Connection = conn.ReturnConnection();
-            sqlCom.CommandText = "SELECT * FROM disney_quiz WHERE" + 
-                "USUARIO = @usuario AND SENHA = @senha";
+            sqlCom.CommandText = "SELECT * FROM dysney_quiz WHERE" + 
+                 " USUARIO = @usuario AND SENHA = @senha";
 
             sqlCom.Parameters.AddWithValue("@usuario", usuario);
             sqlCom.Parameters.AddWithValue("@senha",senha);
@@ -100,7 +100,7 @@ namespace Projeto1
             SqlCommand sqlCommand = new SqlCommand();
 
             sqlCommand.Connection = connection.ReturnConnection();
-            sqlCommand.CommandText = @"UPDATE disney_quiz SET
+            sqlCommand.CommandText = @"UPDATE dysney_quiz SET
              CPF = @CPF, 
              TELEFONE = @TELEFONE, 
              OPINIAO = @OPINIAO, 
@@ -135,8 +135,8 @@ namespace Projeto1
             SqlCommand sqlCommand = new SqlCommand();
 
             sqlCommand.Connection = connection.ReturnConnection();
-            sqlCommand.CommandText = @"INSERT INTO disney_quiz VALUES 
-            (@CPF, @TELEFONE, @OPINIAO, @OPINIAO2, @FILMEPREFE, @MUSICAPREFE, @PERSONAGEMPREFE, @DYSNEY)";
+            sqlCommand.CommandText = @"INSERT INTO dysney_quiz VALUES 
+            (@CPF, @TELEFONE, @OPINIAO, @OPINIAO2, @FILMEPREFE, @MUSICAPREFE, @PERSONAGEMPREFE, @DYSNEY, @usuario, @senha)";
 
             sqlCommand.Parameters.AddWithValue("@CPF", perfil.CPF);
             sqlCommand.Parameters.AddWithValue("@TELEFONE", perfil.TELEFONE);
@@ -159,7 +159,7 @@ namespace Projeto1
             SqlCommand sqlCommand = new SqlCommand();
 
             sqlCommand.Connection = connection.ReturnConnection();
-            sqlCommand.CommandText = @"DELETE FROM disney_quiz WHERE Id = @id";
+            sqlCommand.CommandText = @"DELETE FROM dysney_quiz WHERE Id = @id";
             sqlCommand.Parameters.AddWithValue("@ID", ID);
             try
             {

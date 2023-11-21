@@ -23,11 +23,6 @@ namespace Projeto1
                 button2.Visible = false;
                 button1.Visible = false;
             }
-
-
-
-
-
         }
 
         private void UpdateListView()
@@ -60,10 +55,6 @@ namespace Projeto1
             {
                 MessageBox.Show(err.Message);
             }
-
-
-
-
         }
 
         private bool IsCpf(string cpf)
@@ -216,7 +207,6 @@ namespace Projeto1
         {
 
         }
-
 
         private void button1_Click_1(object sender, EventArgs e)
         {
