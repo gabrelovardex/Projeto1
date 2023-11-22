@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -313,5 +314,41 @@ namespace Projeto1
         {
 
         }
+
+        private void txbSenha_TextChanged(object sender, EventArgs e)
+        {
+            
+                string senhaOriginal = "MinhaSenha123"; // Sua senha original
+
+                // Criptografando a senha usando SHA-256
+                string senhaCriptografada = CriptografarSenhaSHA256(senhaOriginal);
+
+                Console.WriteLine("Senha Original: " + senhaOriginal);
+                Console.WriteLine("Senha Criptografada: " + senhaCriptografada);
+
+                Console.ReadLine();
+            }
+
+            static string CriptografarSenhaSHA256(string senha)
+            {
+                using (SHA256 sha256 = SHA256.Create())
+                {
+                    // Convertendo a senha para um array de bytes
+                    byte[] bytesSenha = Encoding.UTF8.GetBytes(senha);
+
+                    // Calculando o hash SHA-256
+                    byte[] hashBytes = sha256.ComputeHash(bytesSenha);
+
+                    // Convertendo o hash para uma string hexadecimal
+                    StringBuilder builder = new StringBuilder();
+                    for (int i = 0; i < hashBytes.Length; i++)
+                    {
+                        builder.Append(hashBytes[i].ToString("x2")); // x2 para representação hexadecimal
+                    }
+
+                    return builder.ToString();
+                }
+            }
+        }
     }
-}
+

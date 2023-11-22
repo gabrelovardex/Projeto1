@@ -351,6 +351,7 @@
             this.txbSenha.PasswordChar = '*';
             this.txbSenha.Size = new System.Drawing.Size(100, 20);
             this.txbSenha.TabIndex = 25;
+            this.txbSenha.TextChanged += new System.EventHandler(this.txbSenha_TextChanged);
             // 
             // label3
             // 

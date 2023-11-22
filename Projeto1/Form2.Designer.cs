@@ -43,8 +43,10 @@
             // 
             this.txbSenha.Location = new System.Drawing.Point(320, 225);
             this.txbSenha.Name = "txbSenha";
+            this.txbSenha.PasswordChar = '*';
             this.txbSenha.Size = new System.Drawing.Size(100, 20);
             this.txbSenha.TabIndex = 0;
+            this.txbSenha.TextChanged += new System.EventHandler(this.txbSenha_TextChanged);
             // 
             // txbUsuario
             // 

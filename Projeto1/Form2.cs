@@ -66,5 +66,10 @@ namespace Projeto1
                     MessageBoxIcon.Error);
             }
         }
+
+        private void txbSenha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
