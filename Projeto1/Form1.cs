@@ -18,7 +18,7 @@ namespace Projeto1
         public Form1(int controle)
         {
             InitializeComponent();
-            if(controle == 2)
+            if (controle == 2)
             {
                 listView1.Visible = false;
                 button2.Visible = false;
@@ -127,7 +127,7 @@ namespace Projeto1
                  MessageBoxIcon.Information);
 
             }
-            catch(Exception error)    
+            catch (Exception error)
             {
                 MessageBox.Show(error.Message);
             }
@@ -277,20 +277,20 @@ namespace Projeto1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
             PerfilDisneyDAO perfildisneyobjeto = new PerfilDisneyDAO();
             perfildisneyobjeto.DeletePerfil(ID);
 
-                mtxbCpf.Clear();
-                mtxbNumber.Clear();
-                txbNome.Clear();
-                txbPront.Clear();
-                txbQuest.Clear();
-                txbMusic.Clear();
-                txbPerson.Clear();
-                txbDisney.Clear();
-                txbUsuario.Clear();
-                txbSenha.Clear();
+            mtxbCpf.Clear();
+            mtxbNumber.Clear();
+            txbNome.Clear();
+            txbPront.Clear();
+            txbQuest.Clear();
+            txbMusic.Clear();
+            txbPerson.Clear();
+            txbDisney.Clear();
+            txbUsuario.Clear();
+            txbSenha.Clear();
 
             UpdateListView();
 
@@ -317,38 +317,9 @@ namespace Projeto1
 
         private void txbSenha_TextChanged(object sender, EventArgs e)
         {
-            
-                string senhaOriginal = "MinhaSenha123"; // Sua senha original
 
-                // Criptografando a senha usando SHA-256
-                string senhaCriptografada = CriptografarSenhaSHA256(senhaOriginal);
 
-                Console.WriteLine("Senha Original: " + senhaOriginal);
-                Console.WriteLine("Senha Criptografada: " + senhaCriptografada);
-
-                Console.ReadLine();
-            }
-
-            static string CriptografarSenhaSHA256(string senha)
-            {
-                using (SHA256 sha256 = SHA256.Create())
-                {
-                    // Convertendo a senha para um array de bytes
-                    byte[] bytesSenha = Encoding.UTF8.GetBytes(senha);
-
-                    // Calculando o hash SHA-256
-                    byte[] hashBytes = sha256.ComputeHash(bytesSenha);
-
-                    // Convertendo o hash para uma string hexadecimal
-                    StringBuilder builder = new StringBuilder();
-                    for (int i = 0; i < hashBytes.Length; i++)
-                    {
-                        builder.Append(hashBytes[i].ToString("x2")); // x2 para representação hexadecimal
-                    }
-
-                    return builder.ToString();
-                }
-            }
         }
     }
+}
 
