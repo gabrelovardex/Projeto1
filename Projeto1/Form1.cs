@@ -320,6 +320,12 @@ namespace Projeto1
 
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form3 form1 = new Form3();
+            form1.ShowDialog();
+        }
     }
 }
 

@@ -66,6 +66,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblSENHA = new System.Windows.Forms.Label();
             this.lblUSUARIO = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNome
@@ -380,12 +381,24 @@
             this.lblUSUARIO.TabIndex = 28;
             this.lblUSUARIO.Text = "Crie um USUARIO para sempre ter acesso ao nosso quiz:";
             // 
+            // button3
+            // 
+            this.button3.BackgroundImage = global::Projeto1.Properties.Resources.disney;
+            this.button3.Location = new System.Drawing.Point(1039, 53);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(165, 23);
+            this.button3.TabIndex = 29;
+            this.button3.Text = "CATÁLOGO DE FILMES";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Projeto1.Properties.Resources.mickey;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1224, 662);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.lblUSUARIO);
             this.Controls.Add(this.lblSENHA);
             this.Controls.Add(this.label3);
@@ -461,6 +474,7 @@
         private System.Windows.Forms.Label lblUSUARIO;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.Button button3;
     }
 }
 
