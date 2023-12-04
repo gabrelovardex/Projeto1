@@ -10,22 +10,22 @@ using System.Windows.Forms;
 
 namespace Projeto1
 {
-    public partial class Form6 : Form
+    public partial class Form5 : Form
     {
-        public Form6()
+        public Form5()
         {
             InitializeComponent();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Form3 form3 = new Form3();
             form3.ShowDialog();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
